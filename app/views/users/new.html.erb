@@ -1,0 +1,22 @@
+<head>
+<style>
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+    padding: 15px;
+  }
+
+</style>
+</head>
+  <div class="modal-content">
+  <h1 style="text-align: center">Sign Up</h1>
+  <p>Please fill in this form to create an account.</p>
+  <hr>
+
+  <%= render "form", user: @user %>
+
+  <br>
+</div>

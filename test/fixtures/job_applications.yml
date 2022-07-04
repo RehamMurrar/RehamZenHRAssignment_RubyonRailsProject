@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_application_id: 1
+  job_post: one
+  user: one
+  applied_on: 2022-07-04 02:09:22
+  job_application_state: one
+
+two:
+  job_application_id: 1
+  job_post: two
+  user: two
+  applied_on: 2022-07-04 02:09:22
+  job_application_state: two

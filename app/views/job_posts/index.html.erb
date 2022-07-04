@@ -1,0 +1,55 @@
+<head>
+  <style>
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+      }
+
+      tr:hover {background-color: #D6EEEE;}
+  </style>
+</head>
+
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center">Job Posts</h1>
+
+<div id="job_posts" >
+  <div style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 1 ? "table-cell" : "none" %>">
+    <%= link_to "Add New Job Post", new_job_post_path, :class=>"btn btn-success" %>
+  </div>
+<br>
+  <br>
+  <table class="table table-striped">
+    <thead>
+    <th>Job Post ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Posted by</th>
+    <th>Posted on</th>
+    <th colspan="3" style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 1 ? "table-cell" : "none" %>"></th>
+    <th style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 2 ? "table-cell" : "none" %>">Apply?</th>
+    </thead>
+    <tbody>
+    <% @job_posts.each do |job_post| %>
+      <tr>
+        <td><%= job_post.job_post_id  %></td>
+        <td><%= job_post.job_post_title  %></td>
+        <td><%= job_post.job_post_describtion  %></td>
+        <td><%= job_post.user.user_name  %></td>
+        <td><%= job_post.posted_on  %></td>
+        <td style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 1 ? "table-cell" : "none" %>"><%= link_to "show Details", job_post,:class=>"btn btn-info" %></td>
+        <td style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 1 ? "table-cell" : "none" %>"><%= link_to "Edit", edit_job_post_path(job_post),:class=>"btn btn-info" %></td>
+        <td style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 1 ? "table-cell" : "none" %>"><%= link_to "Destroy", job_post, method: :delete, data: {confirm: "Are you sure?",:class=>"btn btn-info"},:class=>"btn btn-info" %></td>
+        <td style="display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 2 ? "table-cell" : "none" %>"><%= link_to "Apply", job_post, :class=>"btn btn-info" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br/>
+  </div>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Job application states</h1>
+
+<div id="job_application_states">
+  <% @job_application_states.each do |job_application_state| %>
+    <%= render job_application_state %>
+    <p>
+      <%= link_to "Show this job application state", job_application_state %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New job application state", new_job_application_state_path %>

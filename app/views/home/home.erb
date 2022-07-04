@@ -1,0 +1,48 @@
+
+<head>
+  <style>
+    .module-buttons {
+        padding: 20px;
+        margin: 50px;
+        font-size: xx-large;
+        font-weight: bold;
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<div>
+
+  <%#= form_tag( :url => { :action => "job_seeker" }, method: "post" ) do  %>
+
+  <div id="job_seeker_panel" style="text-align: center;display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 1 ? "none" : "block" %>">
+    <h1>Job Seeker Dashboard</h1>
+    <br>
+    <p>Welcome <span style="font-size: larger; font-weight:bold"> <%= User.find_by(:user_id=>session[:user]).user_name %></p></span>
+    <br>
+    <br>
+    <div>
+      <%= button_to "View Job Posts", job_posts_path, :method => "get", :class => "module-buttons" %>
+    </div>
+  </div>
+
+  <div id="admin_panel" style="text-align: center; display: <%= User.find_by(:user_id=>session[:user]).user_type_id == 2 ? "none" : "block" %>">
+    <h1>Admin Dashboard</h1>
+    <br>
+    <p>Welcome <span style="font-size: larger; font-weight:bold"><%= User.find_by(:user_id=>session[:user]).user_name %></p></span>
+    <br>
+    <br>
+    <div>
+      <%= button_to "Manage Job Posts", job_posts_path, :method => "get", :class => "module-buttons" %>
+      <%#= button_to "View Job Applications", job_post_job_applications_path, :method => "get", :class => "module-buttons" %>
+      <%= button_to "View Job Posts", job_posts_path, :method => "get", :class => "module-buttons" %>
+    </div>
+
+
+<!--    <li ><a href="/../job_posts">Manage Job Posts</a></li>
+    <li ><a href="/../job_applications">View Job Applications</a></li>
+    <li ><a href="/../job_posts">View Job Posts</a></li>-->
+  </div>
+</div>
+
+

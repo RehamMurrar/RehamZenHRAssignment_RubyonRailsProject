@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_post: 1
+  job_post_title: MyString
+  job_post_describtion: MyText
+  user: one
+  posted_on: 2022-07-04 02:05:15
+
+two:
+  job_post: 1
+  job_post_title: MyString
+  job_post_describtion: MyText
+  user: two
+  posted_on: 2022-07-04 02:05:15

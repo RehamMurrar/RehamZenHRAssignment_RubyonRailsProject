@@ -1,0 +1,2 @@
+module JobSeekerHomeHelper
+end

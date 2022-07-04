@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="users">
+    <table class="table table-striped">
+      <thead>
+        <th>user id</th>
+        <th>user name</th>
+        <th>user type</th>
+        <th>user email</th>
+        <th>user password</th>
+        <th colspan="3"></th>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.user_id  %></td>
+                <td><%= user.user_name  %></td>
+                <td><%= user.user_type.user_type_name  %></td>
+                <td><%= user.user_email  %></td>
+                <td><%= user.user_password  %></td>
+                <td><%= link_to "Show", user,:class=>"btn btn-info" %></td>
+                <td><%= link_to "Edit", edit_user_path(user),:class=>"btn btn-info" %></td>
+                <td><%= link_to "Destroy", user, method: :delete, data: {confirm: "Are you sure?",:class=>"btn btn-info"},:class=>"btn btn-info" %></td>
+            </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br/>
+  <%= link_to "New user", new_user_path, :class=>"btn btn-success" %>
+</div>
+
+

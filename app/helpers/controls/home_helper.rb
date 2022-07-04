@@ -1,0 +1,2 @@
+module Controls::HomeHelper
+end

@@ -1,0 +1,79 @@
+<p id="notice" style="color: green"><%= notice %></p>
+
+<h1>Job Post Details</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <p>
+      <strong>Title:</strong>
+      <%= @job_post.job_post_title %>
+    </p>
+  </div>
+
+  <div class="panel-body">
+    <p>
+      <strong>Description:</strong>
+      <%= @job_post.job_post_describtion %>
+    </p>
+
+    <p>
+      <strong>Posted by:</strong>
+      <%= @job_post.user.user_name %>
+    </p>
+
+    <p>
+      <strong>Posted on:</strong>
+      <%= @job_post.posted_on %>
+    </p>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Applied Job Applications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @job_post.job_applications.each do | job_application| %>
+              <tr>
+                <td>
+                  <%= job_application.job_application_id %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Apply to the Job Post (Add your Applicant):</div>
+  <div class="panel-body">
+
+    <%= form_for([@job_post,@job_post.job_applications.build]) do |f| %>
+
+
+      <div class="field">
+
+        <%= f.text_area :job_application_state_id ,:class => 'form-control' %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit  class:"btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!--
+<%#= link_to 'Edit', edit_job_post_path(@job_post) ,:class=>"btn btn-info"%> |
+<%#= link_to 'Back', job_posts_path ,:class=>"btn btn-info" %>-->
+<%= link_to "Back to job posts", job_posts_path %>
+</div>
+</div>

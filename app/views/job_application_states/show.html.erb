@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @job_application_state %>
+
+<div>
+  <%= link_to "Edit this job application state", edit_job_application_state_path(@job_application_state) %> |
+  <%= link_to "Back to job application states", job_application_states_path %>
+
+  <%= button_to "Destroy this job application state", @job_application_state, method: :delete %>
+</div>
